@@ -1,14 +1,19 @@
-import './list.scss'
+import './listItem.scss'
 import responsive from '../assets/responsive.png'
+import { Services } from '../list'
 
-export function ListItem() {
+type Props = {
+  service: Services
+}
+
+export function ListItem({ service }: Props) {
   return (
-    <div className="list">
-      <div className="list__icon">
+    <div className="listItem">
+      <div className="listItem__icon">
         <img src={responsive} alt="icon" />
       </div>
-      <div className="list__title">fully responsive</div>
-      <div className="list__text">asd</div>
+      <div className="listItem__title">{service.name}</div>
+      <div className="listItem__text">{service.description}</div>
     </div>
   )
 }
