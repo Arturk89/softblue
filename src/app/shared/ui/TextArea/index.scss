@@ -1,0 +1,20 @@
+.textarea {
+  border: 1px solid rgb(207, 207, 207);
+  color: rgb(207, 207, 207);
+  line-height: 2;
+  font-size: 12px;
+  background-color: transparent;
+  outline: none;
+  padding: 8px;
+  display: block;
+  width: 100%;
+
+  &::placeholder {
+    color: rgb(207, 207, 207);
+    font-family: 'Poppins';
+  }
+
+  &:active {
+    color: #fafafa;
+  }
+}

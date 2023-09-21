@@ -1,0 +1,18 @@
+.inputText {
+  border: 1px solid rgb(207, 207, 207);
+  color: rgb(207, 207, 207);
+  line-height: 2;
+  font-size: 12px;
+  background-color: transparent;
+  outline: none;
+  padding-left: 8px;
+  display: block;
+
+  &::placeholder {
+    color: rgb(207, 207, 207);
+  }
+
+  &:active {
+    color: #fafafa;
+  }
+}
