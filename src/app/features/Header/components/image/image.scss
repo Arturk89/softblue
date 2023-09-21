@@ -1,0 +1,11 @@
+.imageContainer {
+  border: 1px solid green;
+  position: relative;
+  width: 100%;
+
+  & img {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+}

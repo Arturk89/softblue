@@ -1,0 +1,11 @@
+.topbarWrapper {
+  padding-left: 375px;
+  padding-right: 375px;
+  padding-top: 62px;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+  }
+}

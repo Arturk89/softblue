@@ -1,0 +1,14 @@
+$background-light: #06101a;
+
+.headerWrapper {
+  width: 100%;
+  height: 100vh;
+  min-width: 1600px;
+  background-color: #06101a;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../../../../assets/Header/polygon-bg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
