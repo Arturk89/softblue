@@ -1,5 +1,5 @@
-import logo from '../../../../../../assets/Header/logo.png'
-import './logo.scss'
+import logo from '../../../assets/logo.png'
+import './index.scss'
 
 export function Logo() {
   return (

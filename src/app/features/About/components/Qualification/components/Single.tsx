@@ -16,7 +16,7 @@ export function Single() {
         <p>Title</p>
       </div>
       <div className="experience__tile__text">
-        <p>asdasdasdasdasdasdasdasdasdasd</p>
+        <p>asdasdasdasdasdasdasdasdasd sdasdasdasda sdasdasdasdasdasdasda</p>
       </div>
     </div>
   )

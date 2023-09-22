@@ -1,7 +1,7 @@
-import { Logo } from './logo/Logo'
-import { NavList } from './main-nav-list/NavList'
-import { NavigationWrapper } from './nav-wrapper/NavigationWrapper'
-import { TopBarWrapper } from './topbar-wrapper/TopBarWrapper'
+import { Logo } from './logo'
+import { NavList } from './main-nav-list'
+import { NavigationWrapper } from './nav-wrapper'
+import { TopBarWrapper } from './topbar-wrapper'
 
 export function TopBar() {
   return (

@@ -1,11 +1,8 @@
-.test321 {
-  display: flex;
-  justify-content: center;
-}
+@import 'shared/ui/scss/_colors.scss';
 
-.whatWeDo {
+.detailsWrapper {
   width: 100%;
-  background-color: #050d16;
+  background-color: $background-light;
   padding-bottom: 130px;
 
   &__title {
@@ -27,18 +24,26 @@
     text-align: center;
     text-transform: capitalize;
   }
+}
 
-  &__textContainer {
+.articlesWrapper {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    max-width: 1170px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
 
     &__text {
-      max-width: 770px;
-      padding-top: 40px;
       font-size: 15px;
-      color: rgb(250, 247, 255);
+      color: rgb(232, 225, 225);
       line-height: 1.867;
-      text-align: center;
+      text-align: left;
+      padding-top: 20px;
+      width: 570px;
     }
   }
 }

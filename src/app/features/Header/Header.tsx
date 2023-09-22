@@ -1,8 +1,8 @@
-import { HeaderWrapper } from './components/Wrapper/HeaderWrapper'
+import { HeaderWrapper } from './components/HeaderWrapper'
 import { TopBar } from './components/topbar/TopBar'
 import { MainWrapper } from './components/main/MainWrapper'
-import { Image } from './components/image/Image'
-import './header.scss'
+import { PersonImage } from './components/PersonImage'
+import './index.scss'
 
 export function Header() {
   return (
@@ -10,7 +10,7 @@ export function Header() {
       <TopBar />
       <div className="mainSection">
         <MainWrapper />
-        <Image />
+        <PersonImage />
       </div>
     </HeaderWrapper>
   )

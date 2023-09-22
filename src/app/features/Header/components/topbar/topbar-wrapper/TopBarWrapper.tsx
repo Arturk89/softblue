@@ -1,4 +1,4 @@
-import './topbar-wrapper.scss'
+import './index.scss'
 
 export function TopBarWrapper({ children }: { children: React.ReactNode }) {
   return (

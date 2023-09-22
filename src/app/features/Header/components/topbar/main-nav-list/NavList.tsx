@@ -1,11 +1,6 @@
 import { navigation } from './nav-list'
-import { Link } from '../../../../../shared/ui/Link/Link'
-import './nav-list.scss'
-
-/**
- *
- * dodaćflex-shring oraz padding przed logiem
- */
+import { Link } from 'shared/ui/Link/Link'
+import './index.scss'
 
 export function NavList() {
   return (
