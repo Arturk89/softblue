@@ -19,11 +19,6 @@ const navigation: Nav[] = [
     id: '_3',
     label: 'Experience',
     href: '/experience'
-  },
-  {
-    id: '_4',
-    label: 'Comments',
-    href: '#'
   }
 ]
 

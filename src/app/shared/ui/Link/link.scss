@@ -6,13 +6,8 @@
   line-height: 1.25;
   padding-right: 4rem;
 
-  &:active:not(:last-of-type) {
+  &.active {
     text-decoration: line-through;
     color: rgb(0, 188, 212);
-  }
-
-  &:last-of-type {
-    background-color: #00bcd4;
-    padding: 10px 40px;
   }
 }

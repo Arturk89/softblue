@@ -2,10 +2,11 @@ import './index.scss'
 import { InputText } from '../../../shared/ui/Input/InputText'
 import { TextArea } from '../../../shared/ui/TextArea/TextArea'
 import { Button } from '../../../shared/ui/Button/Button'
+import { config } from 'shared/utils/config/app-config'
 
 export function CreateComment() {
   return (
-    <section className="createComment">
+    <section id={config.addingCommentsSection} className="createComment">
       <div className="createComment__container">
         <p className="createComment__container__title">Add comment</p>
         <div className="createComment__form">
