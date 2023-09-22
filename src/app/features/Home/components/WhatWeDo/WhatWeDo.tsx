@@ -1,21 +1,18 @@
-import './index.scss'
-import { List } from './components/List'
+import { OffersList } from './components/offers-list/OffersList'
+import { SectionTitle } from 'features/Home/shared/SectionTitle'
+import { SectionWrapper } from 'features/Home/shared/SectionWrapper'
 
 export function WhatWeDo() {
   return (
-    <section className="whatWeDo">
-      <p className="whatWeDo__title">what we do</p>
-      <p className="whatWeDo__subtitle">better services for you</p>
-      <div className="whatWeDo__textContainer">
-        <p className="whatWeDo__textContainer__text">
-          it is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has
-        </p>
-      </div>
-      <div className="test321">
-        <List />
-      </div>
-    </section>
+    <SectionWrapper isDark>
+      <SectionTitle
+        title="what we do"
+        subtitle="better services for you"
+        description="it is a long established fact that a reader will be distracted by the
+        readable content of a page when looking at its layout. The point of
+        using Lorem Ipsum is that it has"
+      />
+      <OffersList />
+    </SectionWrapper>
   )
 }

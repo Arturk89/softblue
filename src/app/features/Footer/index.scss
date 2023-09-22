@@ -1,5 +1,7 @@
+@import 'shared/ui/scss/_colors.scss';
+
 .footer {
-  background-color: #00bcd4;
+  background-color: $primary;
 
   & p {
     font-size: 14px;

@@ -1,18 +1,11 @@
-.test321 {
-  display: flex;
-  justify-content: center;
-}
+@import 'shared/ui/scss/_colors.scss';
 
-.whatWeDo {
-  width: 100%;
-  background-color: #050d16;
-  padding-bottom: 130px;
-
+.sectionHome {
   &__title {
     padding-top: 130px;
     font-size: 24px;
     text-align: center;
-    color: rgb(0, 188, 212);
+    color: $primary;
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1.25;
@@ -28,7 +21,7 @@
     text-transform: capitalize;
   }
 
-  &__textContainer {
+  &__description {
     display: flex;
     justify-content: center;
 

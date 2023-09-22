@@ -1,19 +1,18 @@
-import './index.scss'
-import { ExperienceGrid } from './components/ExperienceGrid'
+import { ExperienceList } from './components/experience-list/ExperienceList'
+import { SectionTitle } from 'features/Home/shared/SectionTitle'
+import { SectionWrapper } from 'features/Home/shared/SectionWrapper'
 
 export function Qualification() {
   return (
-    <section className="qualification">
-      <p className="qualification__title">qualification</p>
-      <p className="qualification__subtitle">my experience</p>
-      <div className="qualification__textContainer">
-        <p className="qualification__textContainer__text">
-          it is a long established fact that a reader will be distracted by the
+    <SectionWrapper>
+      <SectionTitle
+        title="qualification"
+        subtitle="My experience"
+        description="it is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has
-        </p>
-      </div>
-      <ExperienceGrid />
-    </section>
+          using Lorem Ipsum is that it has"
+      />
+      <ExperienceList />
+    </SectionWrapper>
   )
 }
