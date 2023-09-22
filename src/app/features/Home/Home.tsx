@@ -1,7 +1,7 @@
 import { WhatWeDo } from './components/WhatWeDo/WhatWeDo'
 import { Qualification } from './components/Qualification/Qualification'
 
-export function About() {
+export function Home() {
   return (
     <>
       <WhatWeDo />

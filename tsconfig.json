@@ -17,7 +17,8 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./src/*"],
-      "shared/*": ["app/shared/*"]
+      "shared/*": ["app/shared/*"],
+      "features/*": ["app/features/*"]
     },
 
     /* Linting */
