@@ -1,18 +1,36 @@
-.inputText {
-  border: 1px solid rgb(207, 207, 207);
-  color: rgb(207, 207, 207);
-  line-height: 2;
-  font-size: 12px;
-  background-color: transparent;
-  outline: none;
-  padding-left: 8px;
-  display: block;
+@import 'shared/ui/scss/_colors.scss';
 
-  &::placeholder {
+.inputText {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__input {
+    display: block;
+    border: 1px solid rgb(207, 207, 207);
     color: rgb(207, 207, 207);
+    line-height: 2;
+    font-size: 12px;
+    background-color: transparent;
+    outline: none;
+    padding-left: 8px;
+    font-family: 'Poppins', arial;
+
+    &::placeholder {
+      color: rgb(207, 207, 207);
+    }
+
+    &:active {
+      color: #fafafa;
+    }
+  }
+  &__message {
+    color: $error;
+    font-size: 8px;
+    padding-top: 4px;
   }
 
-  &:active {
-    color: #fafafa;
+  &__message--empty {
+    height: 16px;
   }
 }
