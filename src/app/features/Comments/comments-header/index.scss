@@ -1,0 +1,33 @@
+.commentsHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+
+  &__title,
+  &__sort {
+    color: rgb(215, 215, 215);
+  }
+
+  &__title {
+    font-size: 18px;
+    line-height: 1.333;
+  }
+
+  &__sort {
+    font-size: 15px;
+    line-height: 1.867;
+
+    &--desc,
+    &--asc {
+      cursor: pointer;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+    &--desc:hover,
+    &--asc:hover {
+      text-decoration: underline;
+    }
+  }
+}

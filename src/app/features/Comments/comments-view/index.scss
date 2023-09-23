@@ -1,0 +1,43 @@
+// @import 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css';
+@import 'shared/ui/scss/_colors.scss';
+
+.pagination {
+  display: flex;
+  gap: 5px;
+  list-style-type: none;
+}
+.page-item {
+  background-color: $background-light;
+  padding: 8px 12px;
+  color: #fafafa;
+  cursor: pointer;
+}
+.page-item.active {
+  background-color: $primary;
+}
+
+.page-item-break {
+  background-color: transparent;
+  color: #fafafa;
+  display: flex;
+  align-items: center;
+}
+
+.page-item-prev,
+.page-item-next {
+  display: none;
+}
+
+.commentsView {
+  width: 100%;
+  background-color: #050d16;
+  padding-top: 70px;
+  padding-bottom: 130px;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 100%;
+    max-width: 35%;
+  }
+}
