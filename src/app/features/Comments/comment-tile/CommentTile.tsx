@@ -7,7 +7,6 @@ type Props = {
 }
 
 export const CommentTile = memo(({ comment }: Props) => {
-  console.log('comment ', comment)
   return (
     <div className="commentTile">
       <p className="commentTile__date">{comment.createdAt}</p>

@@ -45,7 +45,6 @@ export function CreateComment() {
       return
     }
     const response = await createComment(comment)
-    console.log('response from added ', response)
     setComment(initialState)
     console.log('e ', e)
   }

@@ -57,9 +57,8 @@ export function CommentsView() {
     setComments((com) => com.slice().sort((a, b) => (a.id < b.id ? -1 : 1)))
   }
 
-  const handlePageClick = (event: unknown) => {
-    const newOffset = (event?.selected * COMMENTS_PER_PAGE) % comments.length
-    console.log('new offset ', newOffset)
+  const handlePageClick = (event: { selected: number }) => {
+    const newOffset = (event.selected * COMMENTS_PER_PAGE) % comments.length
     setCommentOffset(newOffset)
   }
 
