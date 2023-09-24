@@ -1,3 +1,5 @@
+@import 'shared/ui/scss/_colors.scss';
+
 .mainWrapper {
   margin-top: 53px;
   margin-right: 21px;
@@ -22,7 +24,7 @@
   text-align: left;
 
   & span {
-    color: #00bcd4;
+    color: $primary;
     text-transform: uppercase;
   }
 }

@@ -1,3 +1,5 @@
+@import 'shared/ui/scss/_colors.scss';
+
 .link {
   text-decoration: none;
   color: #f9f9f9;
@@ -8,6 +10,6 @@
 
   &.active {
     text-decoration: line-through;
-    color: rgb(0, 188, 212);
+    color: $primary;
   }
 }
