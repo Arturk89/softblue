@@ -14,7 +14,7 @@ export type ServiceType = z.infer<typeof serviceSchema>
 
 export const getAllServices = () =>
   getHttpClient()
-    .getAll(collectionName)
+    .getAll<ServiceType[]>(collectionName)
     .then((res) => {
       if (servicesSchema.parse(res)) {
         return res

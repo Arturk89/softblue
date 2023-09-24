@@ -16,7 +16,7 @@ export type ExperienceType = z.infer<typeof experienceSchema>
 
 export const getAllExperiences = () =>
   getHttpClient()
-    .getAll(collectionName)
+    .getAll<ExperienceType[]>(collectionName)
     .then((res) => {
       if (experiencesSchema.parse(res)) {
         return res

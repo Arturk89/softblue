@@ -1,4 +1,4 @@
-import { ErrorMessages, Comment } from '../CreateComment/CreateComment'
+import { ErrorMessages, Comment } from '../create-comment/CreateComment'
 import { IS_VALID_EMAIL } from 'shared/regex'
 
 export function validate(comment: Comment) {

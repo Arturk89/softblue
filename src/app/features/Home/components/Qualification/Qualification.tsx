@@ -1,6 +1,6 @@
 import { ExperienceList } from './components/experience-list/ExperienceList'
-import { SectionTitle } from 'features/Home/shared/SectionTitle'
-import { SectionWrapper } from 'features/Home/shared/SectionWrapper'
+import { SectionTitle } from 'features/Home/shared/section-title'
+import { SectionWrapper } from 'features/Home/shared/section-wrapper'
 
 export function Qualification() {
   return (

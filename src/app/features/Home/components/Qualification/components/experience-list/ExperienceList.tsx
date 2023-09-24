@@ -4,10 +4,12 @@ import {
   ExperienceType
 } from '../../data-access/get-all-experience'
 
-import { FlexWrapper } from 'features/Home/shared/FlexWrapper'
+import { FlexWrapper } from 'features/Home/shared/flex-wrapper'
 import { ExperienceTile } from '../experience-tile/ExperienceTile'
 import { experienceStaticData, ExperienceStatic } from './data'
 import { getFormattedDate } from 'shared/utils/getFormattedDate'
+import { useLoader } from 'shared/hooks/useLoader'
+import { Loader } from 'shared/ui/Loader/Loader'
 import './index.scss'
 
 export type ExperienceWithStaticData = ExperienceType & ExperienceStatic
@@ -21,9 +23,11 @@ const { formatDate } = getFormattedDate()
 
 export function ExperienceList() {
   const [experience, setExperience] = useState<ExperienceWithStaticData[]>([])
+  const { loading, stopLoading } = useLoader()
 
   useEffect(() => {
     async function getExperiences() {
+      if (experience.length) return
       const response = (await getAllExperiences()) as ExperienceType[]
       const completeExperienceData = response
         .map((el, i) =>
@@ -38,6 +42,7 @@ export function ExperienceList() {
           to: formatDate(el.to, options)
         }))
       setExperience(completeExperienceData)
+      stopLoading()
     }
     getExperiences()
   }, [])
@@ -45,9 +50,11 @@ export function ExperienceList() {
   return (
     <FlexWrapper>
       <div className="experience">
-        {experience.map((el) => (
-          <ExperienceTile key={el.id} experience={el} />
-        ))}
+        {loading ? (
+          <Loader />
+        ) : (
+          experience.map((el) => <ExperienceTile key={el.id} experience={el} />)
+        )}
       </div>
     </FlexWrapper>
   )

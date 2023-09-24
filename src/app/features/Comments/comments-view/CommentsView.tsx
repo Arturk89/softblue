@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { getAllComments, CommentType } from '../data-access/get-all-comments'
 import { getFormattedDate } from 'shared/utils/getFormattedDate'
 import { CommentsHeader } from '../comments-header/CommentsHeader'
 import { CommentTile } from '../comment-tile/CommentTile'
 import ReactPaginate from 'react-paginate'
+import { Loader } from 'shared/ui/Loader/Loader'
+import { usePaginate } from 'shared/hooks/usePaginate'
+import { useLoader } from 'shared/hooks/useLoader'
+import { useCommentAction, useComments } from '../context/CommentContext'
 import './index.scss'
 
 const options = {
@@ -17,24 +21,14 @@ export enum SORT {
   ASC = 'asc'
 }
 
-const COMMENTS_PER_PAGE = 4
-
 const { formatDate } = getFormattedDate()
 
 export function CommentsView() {
-  const [comments, setComments] = useState<CommentType[]>([])
-
-  const [currentDisplayedComments, setCurrentDisplayedComments] = useState<
-    CommentType[] | null
-  >(null)
-  const [pageCount, setPageCount] = useState(0)
-  const [commentOffset, setCommentOffset] = useState(0)
-
-  useEffect(() => {
-    const endOffset = commentOffset + COMMENTS_PER_PAGE
-    setCurrentDisplayedComments(comments.slice(commentOffset, endOffset))
-    setPageCount(Math.ceil(comments.length / COMMENTS_PER_PAGE))
-  }, [commentOffset, comments])
+  const dispatch = useCommentAction()
+  const comments = useComments()
+  const { loading, stopLoading } = useLoader()
+  const { elements, pageCount, handlePageClick } =
+    usePaginate<CommentType>(comments)
 
   useEffect(() => {
     async function getComments() {
@@ -44,50 +38,66 @@ export function CommentsView() {
         ...el,
         createdAt: formatDate(el.createdAt, options)
       }))
-      setComments(formatted)
+      dispatch(formatted)
+      stopLoading()
     }
     getComments()
   }, [])
 
   const sort = (type: SORT) => {
     if (type === SORT.ASC) {
-      setComments((com) => com.slice().sort((a, b) => (a.id > b.id ? -1 : 1)))
+      dispatch((comments) =>
+        comments
+          .slice()
+          .sort((a, b) =>
+            new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime()
+              ? -1
+              : 1
+          )
+      )
       return
     }
-    setComments((com) => com.slice().sort((a, b) => (a.id < b.id ? -1 : 1)))
-  }
-
-  const handlePageClick = (event: { selected: number }) => {
-    const newOffset = (event.selected * COMMENTS_PER_PAGE) % comments.length
-    setCommentOffset(newOffset)
+    dispatch((comments) =>
+      comments
+        .slice()
+        .sort((a, b) =>
+          new Date(a.createdAt).getTime() < new Date(b.createdAt).getTime()
+            ? -1
+            : 1
+        )
+    )
   }
 
   return (
     <div className="commentsView">
       <div className="commentsView__container">
         <CommentsHeader sort={sort} />
-        <div className="commentView">
-          {currentDisplayedComments?.map((comment) => (
-            <CommentTile key={comment.id} comment={comment} />
-          ))}
-          <ReactPaginate
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={2}
-            pageCount={pageCount}
-            pageClassName="page-item"
-            pageLinkClassName="page-link"
-            previousClassName="page-item-prev"
-            previousLinkClassName="page-link"
-            nextClassName="page-item-next"
-            breakLabel="..."
-            breakClassName="page-item-break"
-            breakLinkClassName="page-link-breaklink"
-            containerClassName="pagination"
-            activeClassName="active"
-            renderOnZeroPageCount={null}
-          />
-        </div>
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="commentView">
+            {elements?.map((comment) => (
+              <CommentTile key={comment.id} comment={comment} />
+            ))}
+            <ReactPaginate
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={2}
+              pageCount={pageCount}
+              pageClassName="page-item"
+              pageLinkClassName="page-link"
+              previousClassName="page-item-prev"
+              previousLinkClassName="page-link"
+              nextClassName="page-item-next"
+              breakLabel="..."
+              breakClassName="page-item-break"
+              breakLinkClassName="page-link-breaklink"
+              containerClassName="pagination"
+              activeClassName="active"
+              renderOnZeroPageCount={null}
+            />
+          </div>
+        )}
       </div>
     </div>
   )

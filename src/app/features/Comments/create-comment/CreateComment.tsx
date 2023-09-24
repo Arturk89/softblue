@@ -3,7 +3,8 @@ import { InputText } from 'shared/ui/Input/InputText'
 import { TextArea } from 'shared/ui/TextArea/TextArea'
 import { Button } from 'shared/ui/Button/Button'
 import { config } from 'shared/utils/config/app-config'
-import { createComment } from '../data-access/create-comment'
+// import { createComment } from '../data-access/create-comment'
+import { useCommentAction } from '../context/CommentContext'
 import { validate } from '../utils/validate'
 import './index.scss'
 
@@ -28,6 +29,8 @@ export function CreateComment() {
   const [comment, setComment] = useState<Comment>(initialState)
   const [error, setError] = useState<Comment>(initialState)
 
+  const createComment = useCommentAction()
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -44,9 +47,20 @@ export function CreateComment() {
       )
       return
     }
-    const response = await createComment(comment)
+    /*
+     * Api is overfilled, so i comment this line below
+     */
+    // const response = await createComment(comment)
+    // show success message
+
+    /**
+     * Create tmp  comment with contextApi
+     */
+    createComment((comments) => [
+      ...comments,
+      { ...comment, id: '1000', createdAt: new Date().toString() }
+    ])
     setComment(initialState)
-    console.log('e ', e)
   }
 
   return (

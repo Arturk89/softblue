@@ -1,0 +1,14 @@
+@import 'shared/ui/scss/_colors.scss';
+
+.main {
+  background-color: $background-dark;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-width: 1600px;
+
+  &__container {
+    width: 100%;
+    max-width: 1920px;
+  }
+}

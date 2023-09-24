@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { routes } from './routes'
 import { withSuspense } from 'shared/HOC/withSuspense'
-import { Page } from 'features/Page'
+import { StartPage } from 'features/StartPage/StartPage'
 
 export const routesConfig = createBrowserRouter([
   {
-    element: <Page />,
+    element: <StartPage />,
     children: [
       {
         path: routes.HOME.path,

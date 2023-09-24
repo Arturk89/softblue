@@ -1,7 +1,7 @@
-import { HeaderWrapper } from './components/HeaderWrapper'
+import { HeaderWrapper } from './components/header-wrapper'
 import { TopBar } from './components/topbar/TopBar'
-import { MainWrapper } from './components/main/MainWrapper'
-import { PersonImage } from './components/PersonImage'
+import { MainWrapper } from './components/main-wrapper/MainWrapper'
+import { PersonImage } from './components/person-image'
 import './index.scss'
 
 export function Header() {
@@ -9,8 +9,10 @@ export function Header() {
     <HeaderWrapper>
       <TopBar />
       <div className="mainSection">
-        <MainWrapper />
-        <PersonImage />
+        <div className="mainSection__container">
+          <MainWrapper />
+          <PersonImage />
+        </div>
       </div>
     </HeaderWrapper>
   )

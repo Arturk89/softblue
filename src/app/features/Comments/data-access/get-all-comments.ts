@@ -16,7 +16,7 @@ export type CommentType = z.infer<typeof commentSchema>
 
 export const getAllComments = () =>
   getHttpClient()
-    .getAll(collectionName)
+    .getAll<CommentType[]>(collectionName)
     .then((res) => {
       if (commentsSchema.parse(res)) {
         return res

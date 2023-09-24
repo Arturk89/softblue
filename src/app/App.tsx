@@ -1,4 +1,4 @@
-import { MainLayout } from './layouts/MainLayout'
+import { MainLayout } from './layouts/main-layout'
 import { RouterProvider } from 'react-router-dom'
 import { routesConfig } from 'shared/utils/routes/routes-config'
 import { initHttpClient } from 'shared/http-client/http-client'

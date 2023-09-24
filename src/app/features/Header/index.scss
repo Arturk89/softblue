@@ -1,8 +1,12 @@
 .mainSection {
   flex: 1;
   display: flex;
+  justify-content: center;
   margin-top: 165px;
-  margin-left: 375px; //375 - 167 = 208px  // 1586
-  margin-right: 167px;
-  border: 1px solid yellow;
+  width: 100%;
+
+  &__container {
+    width: 1586px;
+    display: flex;
+  }
 }

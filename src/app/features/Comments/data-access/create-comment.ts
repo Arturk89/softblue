@@ -6,6 +6,6 @@ type CreateComment = Omit<CommentType, 'id' | 'createdAt'>
 
 export const createComment = (comment: CreateComment) =>
   getHttpClient()
-    .create(collectionName, comment)
+    .create<CreateComment>(collectionName, comment)
     .then((res) => res)
     .catch((err) => console.error(err))
